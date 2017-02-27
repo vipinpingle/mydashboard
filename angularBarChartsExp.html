@@ -1,0 +1,270 @@
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Angular Material Dashboard</title>
+    <meta name="description" content="StateFarm Invoice Assist Wex Dashboard">
+    <meta name="author" content="IBM">
+    <meta name="viewport" content="width=device-width">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.css">
+    <link rel="stylesheet" href="https://dc-js.github.io/dc.js/css/dc.css">
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-animate.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-aria.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-messages.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.js"></script>
+    <script src="https://dc-js.github.io/dc.js/js/d3.js"></script>
+    <script src="https://dc-js.github.io/dc.js/js/crossfilter.js"></script>
+    <script src="https://dc-js.github.io/dc.js/js/dc.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/topojson/1.6.9/topojson.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/datamaps/0.5.8/datamaps.all.js"></script>
+</head>
+<style>
+.states {
+          fill: #aaa;
+          stroke: #fff;
+          stroke-width: 0.75px;
+  }
+
+  </style>
+<body ng-app="wexdashboard" ng-controller="MainController">
+<span class="filter" id="flashMessage"></span>
+<div layout="row" layout-sm="column">
+<div flex="50">
+  <section>
+    <datamap map="mapObject" on-click="updateActiveGeography"></datamap>
+  </section>
+ </div>
+<div flex>
+    <section>
+      <div bar-chart data="stateBillingData" ></div>
+    </section>
+    <section>
+      <div bar-chart data="stateBillingData1" ></div>
+    </section>
+ </div>
+</div>
+
+<script type="text/javascript">
+
+    var app = angular.module('wexdashboard', ['ngMaterial','DataService','datamaps']);
+
+    app.config(function($mdThemingProvider) {
+      $mdThemingProvider.theme('default')
+      .primaryPalette('grey')
+      .accentPalette('grey')
+      .backgroundPalette('grey');
+    });
+
+    app.controller('MainController', ['$scope', 'BillingService',function($scope,BillingService){
+
+    $scope.stateBillingData = [
+            {"year":"2016","hours":100},
+            {"year":"2016","hours":200},
+            {"year":"2017","hours":200},
+            {"year":"2017","hours":300}
+          ];
+    
+    $scope.stateBillingData1 = [
+            {"year":"2016","hours":100},
+            {"year":"2016","hours":50},
+            {"year":"2017","hours":50},
+            {"year":"2017","hours":300}
+           ];
+
+    // setup the mapobject for rendering state map    
+    
+    $scope.mapObject = {
+      scope: 'usa',
+      options: {
+        width: 500,
+        legendHeight: 60 // optionally set the padding for the legend
+      },
+      geographyConfig: {
+        highlighBorderColor: '#306596',
+        highlighBorderWidth: 2
+      },
+      fills: {
+        'HIGH': '#CC4731',
+        'MEDIUM': '#c31820',
+        'LOW': '#306596',
+        'defaultFill': '#DDDDDD'
+      },
+      data: {
+        "IN": {
+          "fillKey": "MEDIUM",
+        },
+        "TX": {
+          "fillKey": "MEDIUM",
+        }
+      },
+    };
+
+    // Method to update the charts when map is clicked. Currently working only for one state at a time. Need to fix multiple state selection. 
+
+     $scope.updateActiveGeography = function(geography) {
+      // get the selected state values
+      $scope.stateName = geography.properties.name;
+      $scope.stateCode = geography.id;
+      
+      // based on selected states call the services to get the data
+      if($scope.stateCode == 'TX'){
+           $scope.stateBillingData = BillingService.billData();
+           $scope.stateBillingData1 = BillingService.billData2();
+
+      }else if($scope.stateCode == 'AZ'){
+          $scope.data = [1,2,3,4,5,6,7];
+      }
+        console.log($scope.stateName);
+        console.log($scope.stateCode);
+        $scope.$apply();
+      }
+    
+      // end the update method. 
+    }]);
+
+    // DataService containing all the data calls from backend.
+
+    var DataService = angular.module('DataService', [])
+    .service('BillingService', function () {
+    
+    // Service method to get the billing hours
+    this.billData = function() {
+        console.log("getting billing Hours data from service call");
+        var stateBillingData = [
+            {"year":"2016","hours":400},
+            {"year":"2016","hours":50},
+            {"year":"2017","hours":600},
+            {"year":"2017","hours":300}
+          ];
+        return stateBillingData;
+      };
+
+    // Service method to get the total violations
+    this.billData2 = function() {
+        console.log("getting billing Hours data from service call");
+        var stateBillingData2 = [
+            {"year":"2016","hours":400},
+            {"year":"2016","hours":50},
+            {"year":"2017","hours":300},
+            {"year":"2017","hours":300}
+          ];
+        return stateBillingData2;
+      };
+   });
+   
+
+  // Reusable Directive for bar Chart - Use <div bar-chart data="stateBillingData" ></div> where data parameter should be different
+  app.directive('barChart', function($window){
+  return {
+    restrict:'EAC',
+    template:"",
+    scope:{
+           data: '=data'
+      },
+    link: function (scope,elem,attrs){
+      var chartElement = elem[0];
+      // variable to hold dc chart
+      var chartFactory = dc['barChart'];
+      // Create an unconfigured instance of the chart
+      var sfBarChart = chartFactory(chartElement);
+      
+      var dataToPlot;
+      
+     // set the watch for the data changes. if the values are changed then update the bar chart, else draw the same. 
+
+      scope.$watch('data', function (newVal, oldVal) {
+          if(newVal!=oldVal){
+
+            dataToPlot = newVal;
+            updateBarChart(dataToPlot); 
+
+          } else {
+        
+            dataToPlot = newVal;
+            drawBarChart(dataToPlot);
+           }
+      });
+      
+
+      
+      function setupChartParameters() {
+
+        sfBarChart
+          .width(350)
+          .height(400)
+          .margins({top: 0, right: 50, bottom: 20, left: 40})
+          .gap(0)
+          .brushOn(false)
+          .yAxisLabel("")
+          .xUnits(dc.units.ordinal);
+      }
+
+      // Function to draw default bar chart 
+
+      function drawBarChart(data) {
+
+      setupChartParameters();
+      // console.log(JSON.stringify(data));
+      var dataToPlotFiltered = crossfilter(data);
+      // console.log(JSON.stringify(dataToPlotFiltered));
+      
+      var yearsDim = dataToPlotFiltered.dimension(function (d) {
+        //  console.log("years = " + d.year);
+          return d.year;
+      });
+      // var xRange = dataToPlotFiltered.dimension(function (d) {
+      //  //   console.log("hoursRange = " + d.hours);
+      //     return d.hours;
+      // });
+      var hoursGroup = yearsDim.group().reduceSum(function (d) {
+        //  console.log("hoursGroup = " + d.hours);
+          return d.hours;
+      });
+      sfBarChart
+        .dimension(yearsDim)
+        .group(hoursGroup)
+        .x(d3.scale.ordinal().domain(yearsDim))
+        .y(d3.scale.linear().domain([0,1000]).range([0,100]))
+          dc.renderAll();
+        }
+
+      // Function to update the bar chart with changed data. This will be called based on the changed scope data.
+
+      function updateBarChart(data) {
+
+      setupChartParameters();
+      // console.log(JSON.stringify(data));
+      var dataToPlotFiltered = crossfilter(data);
+      // console.log(JSON.stringify(dataToPlotFiltered));
+      var yearsDim = dataToPlotFiltered.dimension(function (d) {
+      //  console.log("years = " + d.year);
+      return d.year;
+      });
+      // var hoursRange = dataToPlotFiltered.dimension(function (d) {
+      // //    console.log("hoursRange = " + d.hours);
+      //     return d.hours;
+      // });
+      var hoursGroup = yearsDim.group().reduceSum(function (d) {
+      //    console.log("hoursGroup = " + d.hours);
+          return d.hours;
+      });
+      sfBarChart
+        .dimension(yearsDim)
+        .group(hoursGroup)
+        .x(d3.scale.ordinal().domain(yearsDim))
+        .y(d3.scale.linear().domain([0,1000]).range([0,100]))
+          dc.redrawAll();
+        }
+      }
+      
+    };
+});
+
+</script>
+
+<script>
+"use strict";angular.module("datamaps",[]),angular.module("datamaps").directive("datamap",["$window",function(a){return{restrict:"EA",scope:{map:"=",plugins:"=?",zoomable:"@?",onClick:"&?",pluginData:"="},link:function(b,c,d){function e(){return{element:c[0],scope:"usa",height:b.height,width:b.width,fills:{defaultFill:"#b9b9b9"},data:{},done:function(a){function c(){a.svg.selectAll("g").attr("transform","translate("+d3.event.translate+")scale("+d3.event.scale+")")}angular.isDefined(d.onClick)&&a.svg.selectAll(".datamaps-subunit").on("click",function(a){b.onClick()(a)}),angular.isDefined(d.zoomable)&&a.svg.call(d3.behavior.zoom().on("zoom",c))}}}b.api={refresh:function(a){b.api.updateWithOptions(a)},updateWithOptions:function(c){b.api.clearElement(),b.width=(c.options||{}).width||null,b.height=(c.options||{}).height||(b.width?.5*b.width:null),b.legendHeight=(c.options||{}).legendHeight||50,b.mapOptions=e(),b.mapOptions=angular.extend(b.mapOptions,c),b.datamap=new Datamap(b.mapOptions),b.mapOptions.responsive?a.addEventListener("resize",b.api.resize):a.removeEventListener("resize",b.api.resize),b.api.updatePlugins(b.datamap),b.api.refreshOptions(c.options),b.api.updateWithData(c.data)},updatePlugins:function(a){if(b.plugins){var c=b.pluginData||{};angular.forEach(b.plugins,function(b,d){a.addPlugin(d,b),a[d](c[d])})}},refreshOptions:function(a){a&&(a.labels&&b.datamap.labels({labelColor:a.labelColor?a.labelColor:"#333333",fontSize:a.labelSize?a.labelSize:12}),a.legend&&b.datamap.legend())},resize:function(){b.datamap.resize()},updateWithData:function(a){b.datamap.updateChoropleth(a),b.api.updatePlugins(b.datamap)},clearElement:function(){b.datamap=null,c.empty().css({position:"relative",display:"block","padding-bottom":b.legendHeight+"px"})}},b.$watch("map",function(a,c){a&&!angular.equals({},a)&&(!b.datamap||angular.equals(a.data,c.data)?b.api.refresh(a):(a.options||{}).staticGeoData?b.api.updateWithData(a.data):b.api.refresh(a))},!0),b.$watch("pluginData",function(){b.api.updatePlugins(b.datamap)},!0)}}}]);
+</script>
+</body>
+</html>

@@ -26,25 +26,21 @@
 
   </style>
 <body ng-app="wexdashboard" ng-controller="MainController">
-
 <div layout="row" layout-sm="column">
 <div flex="50">
   <section>
-    <div state-chart chart-data="stateOverlayData" id="statechart"></div>
+    <div state-chart chart-data="stateOverlayData" id="myStateChart">
+      <span class="filter" name="filterState">TX</span>
+    </div>
+    <button ng-click="updateBarChart();">Update</button>
   </section>
-  <section>
-    <div stackedv-chart chart-data="stackedChartData"></div>
-  </section>
+  <!--section>
+    <div stackedv-chart chart-data="stackedChartData" id="stackedchart"></div>
+  </section -->
 </div>
 <div flex>
     <section>
-      <div pie-chart chart-data="stateBillingData" ></div>
-    </section>
-    <section>
-      <div bar-chart chart-data="stateBillingData" ></div>
-    </section>
-    <section>
-      <div bar-chart chart-data="stateBillingData" ></div>
+      <div bar-chart data="stateBillingData" ></div>
     </section>
  </div>
 </div>
@@ -53,11 +49,11 @@
  
   
   
-  <div sftable-chart chart-data="topFirmsData"></div>
+  <!--div sftable-chart chart-data="topFirmsData"></div -->
 </div>
 <script type="text/javascript">
 
-    var app = angular.module('wexdashboard', ['ngMaterial']);
+    var app = angular.module('wexdashboard', ['ngMaterial','DataService']);
 
     app.config(function($mdThemingProvider) {
     $mdThemingProvider.theme('default')
@@ -66,17 +62,41 @@
     .backgroundPalette('grey');
     });
 
-    app.controller('MainController', ['$scope', function($scope){
+    app.controller('MainController', ['$scope', 'BillingService','$timeout',function($scope,$timeout,BillingService){
 
     $scope.sfbillChartObject = "barChart";
     $scope.sfbillChartType = "barChart";
+    $scope.flashMessage = "";
     $scope.stateBillingData = [
             {"year":"2016","hours":100},
             {"year":"2016","hours":200},
             {"year":"2017","hours":200},
             {"year":"2017","hours":300}
           ];
+      //  $scope.stateBillingData = BillingService.billData();
+        // console.log($scope.stateBillingData);
+       
+        // var spans = document.getElementById('myStateChart').getElementsByTagName('span');//returns node-list of spans
+        // for (var i=0;i<spans.length;i++)
+        //   {
+        //       console.log("Got it little bastard = " + spans[i].innerText);//logs 1 for i === 0, 2 for i === 1 etc
+        //   }
 
+         
+       
+       $scope.updateBarChart = function () {
+
+      // $scope.stateBillingData = [
+      //       {"year":"2016","hours":400},
+      //       {"year":"2016","hours":50},
+      //       {"year":"2017","hours":60},
+      //       {"year":"2017","hours":300}
+      //     ];
+        //  $scope.$apply();
+
+        $scope.stateBillingData = BillingService.billData();
+      };
+    
      $scope.stateOverlayData = [
               {"state":"TX","amount":100},
               {"state":"TX","amount":200},
@@ -90,88 +110,94 @@
               {"state":"IN","amount":600}
             ];
 
-
-    $scope.stackedChartData  = [
-    
-              {"date": "31-03-2015 23:05:36","channelUUID": "c1d0001", "bytesTxd": 110},
-              {"date": "31-03-2015 00:05:36","channelUUID": "c1d0001", "bytesTxd": 130},
-              {"date": "24-03-2015 00:05:36","channelUUID": "c1d0001", "bytesTxd": 150},
-              {"date": "17-05-2014 23:05:36","channelUUID": "c1d0001", "bytesTxd": 170},
-              {"date": "31-03-2015 23:55:36","channelUUID": "c1d0002", "bytesTxd": 220},
-              {"date": "01-03-2015 00:55:36","channelUUID": "c1d0002", "bytesTxd": 240},
-              {"date": "25-03-2015 00:55:36","channelUUID": "c1d0002", "bytesTxd": 260},
-              {"date": "31-03-2015 03:05:36","channelUUID": "c1d0002", "bytesTxd": 280},
-              {"date": "17-03-2015 00:55:36","channelUUID": "c1d0002", "bytesTxd": 230},
-              {"date": "31-03-2015 19:05:36","channelUUID": "c1d0003", "bytesTxd": 310},
-              {"date": "31-03-2015 23:13:36","channelUUID": "c1d0003", "bytesTxd": 330},
-              {"date": "26-03-2015 00:45:36","channelUUID": "c1d0003", "bytesTxd": 350},
-              {"date": "29-03-2015 00:15:36","channelUUID": "c1d0004", "bytesTxd": 420},
-              {"date": "28-03-2015 00:55:36","channelUUID": "c1d0004", "bytesTxd": 440},
-              {"date": "06-03-2015 00:55:36","channelUUID": "c1d0004", "bytesTxd": 460},
-              {"date": "31-03-2015 23:45:36","channelUUID": "c1d0001", "bytesTxd": 190},
-              {"date": "31-03-2015 23:25:36","channelUUID": "c1d0003", "bytesTxd": 370},
-              {"date": "31-03-2015 07:05:36","channelUUID": "c1d0005", "bytesTxd": 530},
-              {"date": "21-03-2015 00:55:36","channelUUID": "c1d0002", "bytesTxd": 250},
-              {"date": "11-03-2015 00:55:36","channelUUID": "c1d0005", "bytesTxd": 550},
-              {"date": "31-03-2015 11:05:36","channelUUID": "c1d0003", "bytesTxd": 390},
-              {"date": "17-01-2015 00:55:36","channelUUID": "c1d0005", "bytesTxd": 570},
-              {"date": "17-11-2014 00:55:36","channelUUID": "c1d0005", "bytesTxd": 590},
-              {"date": "31-03-2015 23:35:36","channelUUID": "c1d0003", "bytesTxd": 340},
-              {"date": "17-09-2014 00:55:36","channelUUID": "c1d0003", "bytesTxd": 360},
-              {"date": "28-03-2015 00:25:36","channelUUID": "c1d0002", "bytesTxd": 270},
-              {"date": "31-03-2015 15:05:36","channelUUID": "c1d0005", "bytesTxd": 510},
-              {"date": "16-03-2015 00:55:36","channelUUID": "c1d0003", "bytesTxd": 360},
-              {"date": "27-03-2015 00:35:36","channelUUID": "c1d0002", "bytesTxd": 270},
-              {"date": "17-07-2014 00:55:36","channelUUID": "c1d0005", "bytesTxd": 510} 
-                ];
         
           $scope.topFirmsData = [
           
-            {"name": "Andrews & Phillips LLP","expenditureamount": "$ 234,045"},
-            {"name": "Smith & Smith","expenditureamount": "$ 300,045"},
-            {"name": "Jones Agency","expenditureamount": "$ 200,045"},
-            {"name": "Farnsworth and Bechtel","expenditureamount": "$ 150,045"},
-            {"name": "Meyer-Jones","expenditureamount":  "$ 150,045"}
+            {"name": "Andrews & Phillips LLP","expenditureamount": "234,045"},
+            {"name": "Smith & Smith","expenditureamount": "300,045"},
+            {"name": "Jones Agency","expenditureamount": "200,045"},
+            {"name": "Farnsworth and Bechtel","expenditureamount": "150,045"},
+            {"name": "Meyer-Jones","expenditureamount":  "150,045"}
           ];
 
           $scope.topStateExpenditureData = [
 
-            {"state": "Texas","expenditureamount": "$ 234,045"},
-            {"state": "Ohio","expenditureamount": "$ 300,045"},
-            {"state": "Florida","expenditureamount": "$ 200,045"},
-            {"state": "California","expenditureamount": "$ 150,045"},
-            {"state": "Illinois","expenditureamount": "$ 150,045"}
+            {"state": "Texas","expenditureamount": "234,045"},
+            {"state": "Ohio","expenditureamount": "300,045"},
+            {"state": "Florida","expenditureamount": "200,045"},
+            {"state": "California","expenditureamount": "150,045"},
+            {"state": "Illinois","expenditureamount": "150,045"}
           ];
 
     }]);
+
+    var DataService = angular.module('DataService', [])
+    .service('BillingService', function () {
+    
+     this.billData = function() {
+        console.log("getting billing Hours data from service call");
+        var stateBillingData = [
+            {"year":"2016","hours":400},
+            {"year":"2016","hours":50},
+            {"year":"2017","hours":600},
+            {"year":"2017","hours":300}
+          ];
+        return stateBillingData;
+      };
+   });
+   
 
 // Directive for bar Chart
 app.directive('barChart', function($window){
   return {
     restrict:'EAC',
     template:"",
+    scope:{
+           data: '=data'
+      },
     link: function (scope,elem,attrs){
       var chartElement = elem[0];
       // variable to hold dc chart
       var chartFactory = dc['barChart'];
       // Create an unconfigured instance of the chart
       var sfBarChart = chartFactory(chartElement);
-      var billingDataToPlot = scope[attrs.chartData];
-      var billingDataToPlotFiltered = crossfilter(billingDataToPlot);
+      var billingDataToPlot;
+      scope.$watch('data', function (newVal, oldVal) {
+          if(newVal!=oldVal){
+           billingDataToPlot = newVal;
+           //console.log("inside directive scope =" + billingDataToPlot);
+        //   console.log('being watched oldValue:', oldVal, 'newValue:', newVal );
+            updateBarChart(billingDataToPlot); 
+          } else {
+        
+            billingDataToPlot = newVal;
+           //console.log("inside directive scope =" + billingDataToPlot);
+        //   console.log('being watched oldValue:', oldVal, 'newValue:', newVal );
+           drawBarChart(billingDataToPlot);
+           }
+      });
+      
+
+      function drawBarChart(data) {
+
+  //    console.log(JSON.stringify(data));
+      var billingDataToPlotFiltered = crossfilter(data);
+  //    console.log(JSON.stringify(billingDataToPlotFiltered));
       var yearsDim = billingDataToPlotFiltered.dimension(function (d) {
+        //  console.log("years = " + d.year);
           return d.year;
       });
       var hoursRange = billingDataToPlotFiltered.dimension(function (d) {
-          console.log("hoursRange = " + d.hours);
+       //   console.log("hoursRange = " + d.hours);
           return d.hours;
       });
       var hoursGroup = yearsDim.group().reduceSum(function (d) {
-          console.log("hoursGroup = " + d.hours);
-              return d.hours;
+        //  console.log("hoursGroup = " + d.hours);
+          return d.hours;
       });
       sfBarChart
-        .width(250)
-        .height(200)
+        .width(350)
+        .height(400)
         .margins({top: 0, right: 50, bottom: 20, left: 40})
         .dimension(yearsDim)
         .group(hoursGroup)
@@ -181,8 +207,44 @@ app.directive('barChart', function($window){
         .brushOn(false)
         .yAxisLabel("Hours per year")
         .xUnits(dc.units.ordinal);
-        dc.renderAll();
+          dc.renderAll();
+        }
+
+        function updateBarChart(data) {
+
+     // console.log(JSON.stringify(data));
+      var billingDataToPlotFiltered = crossfilter(data);
+    //  console.log(JSON.stringify(billingDataToPlotFiltered));
+      var yearsDim = billingDataToPlotFiltered.dimension(function (d) {
+    //      console.log("years = " + d.year);
+          return d.year;
+      });
+      var hoursRange = billingDataToPlotFiltered.dimension(function (d) {
+      //    console.log("hoursRange = " + d.hours);
+          return d.hours;
+      });
+      var hoursGroup = yearsDim.group().reduceSum(function (d) {
+      //    console.log("hoursGroup = " + d.hours);
+          return d.hours;
+      });
+      sfBarChart
+        .width(350)
+        .height(400)
+        .margins({top: 0, right: 50, bottom: 20, left: 40})
+        .dimension(yearsDim)
+        .group(hoursGroup)
+        .gap(1)
+        .x(d3.scale.ordinal().domain(yearsDim))
+        .y(d3.scale.linear().domain([0,1000]).range([0,100]))
+        .brushOn(false)
+        .yAxisLabel("Hours per year")
+        .xUnits(dc.units.ordinal);
+          dc.redrawAll();
+        }
+        
+
       }
+      
     };
 });
 
@@ -242,11 +304,11 @@ app.directive('pieChart', function($window){
           return d.year;
       });
       var hoursRange = billingDataToPlotFiltered.dimension(function (d) {
-          console.log("hoursRange = " + d.hours);
+      //    console.log("hoursRange = " + d.hours);
           return d.hours;
       });
       var hoursGroup = yearsDim.group().reduceSum(function (d) {
-          console.log("hoursGroup = " + d.hours);
+     //     console.log("hoursGroup = " + d.hours);
               return d.hours;
       });
       sfPieChart
@@ -263,11 +325,20 @@ app.directive('pieChart', function($window){
 });
 
 // Directive for state map
-app.directive('stateChart', function($window){
+app.directive('stateChart', ['BillingService','$timeout',function($timeout,BillingService){
   return {
-    restrict:'EA',
+    restrict:'EAC',
     template:"",
     link: function (scope,elem,attrs){
+
+
+       // var newData = BillingService.billData();
+       // console.log("newData = " + newData);
+        /// get the values for selected state filter
+       // var elts = document.querySelectorAll('.filter');
+        //console.log("elts = " + elts[0].innerText);
+
+      // call service to update the values which other directives are watching..
 
       var allStatesCode = getStateJsonData();
       var numberFormat = d3.format(".2f");
@@ -276,7 +347,6 @@ app.directive('stateChart', function($window){
       var chartFactory = dc['geoChoroplethChart'];
       // Create an unconfigured instance of the chart
       var sfStateMapChart = chartFactory(chartElement);
-      
       var stateDataToPlot = scope[attrs.chartData];
       var stateDataToPlotFiltered = crossfilter(stateDataToPlot);
 
@@ -287,6 +357,7 @@ app.directive('stateChart', function($window){
       var totalStateExpenditure = statesDim.group().reduceSum(function (d) {
             return d.amount;
         });
+
 
       sfStateMapChart
         .width(600)
@@ -312,7 +383,69 @@ app.directive('stateChart', function($window){
                 .attr("width", "50%")
                 .attr("height", "50%");
             chart.redraw();
-        });
+        })
+        // .on('renderlet', function (chart) {
+        //       chart.selectAll('g').on("click", function(d) {
+        //         console.log("click!", d);
+        //         scope.flashMessage = d.properties[0].name;
+        //       });
+        //       // var newData = BillingService.billData();                
+        //       // console.log("click!", d);
+        //   });
+
+
+
+        // function load(){
+        //   var spans = document.var form = document.getElementsByName('filterState')[0].value;//returns node-list of spans
+        //   $scope.$watch(spans, function(newValue, oldValue) {
+        //         console.log("newValue = " + newValue);
+        //         if(newValue!=oldValue) {
+        //             scope.stateBillingData = BillingService.billData();
+        //         }
+        //   });
+        // }
+
+      //            addEventListener('load', load, false);
+            
+// $timeout(function() {
+//        var legendValues = [];
+
+//        angular.forEach(angular.element(".filter"), function(value, key) {
+//                console.log(angular.element(value));
+//                legendValues.push(angular.element(value));
+//        });
+// });
+
+
+
+            var spans = elem[0];//returns node-list of spans
+            console.log("spans = " + spans);
+            scope.$watch(spans, function(newValue, oldValue) {
+                console.log("newValue = " + newValue);
+                
+                for (var i = 0; i < elem[0].children.length; i++) {
+                    console.log(elem[0].children[i].innerHTML);
+                }
+            
+                if(newValue!=oldValue) {
+                    scope.stateBillingData = BillingService.billData();
+                }
+          });
+
+      //   scope.$watch('data', function (newVal, oldVal) {
+      //     if(newVal!=oldVal){
+      //      billingDataToPlot = newVal;
+      //      //console.log("inside directive scope =" + billingDataToPlot);
+      //   //   console.log('being watched oldValue:', oldVal, 'newValue:', newVal );
+      //       updateBarChart(billingDataToPlot); 
+      //     } else {
+        
+      //       billingDataToPlot = newVal;
+      //      //console.log("inside directive scope =" + billingDataToPlot);
+      //   //   console.log('being watched oldValue:', oldVal, 'newValue:', newVal );
+      //      drawBarChart(billingDataToPlot);
+      //      }
+      // });
 
        dc.renderAll();
 
@@ -380,7 +513,7 @@ app.directive('stateChart', function($window){
         }
       }
     };
-});
+}]);
 
 
 // Directive for stacked vertical bar chart
