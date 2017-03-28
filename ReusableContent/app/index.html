@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html lang="en" ng-app="myApp" class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html lang="en" ng-app="myApp" class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html lang="en" ng-app="myApp" class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html lang="en" ng-app="myApp" class="no-js"> <!--<![endif]-->
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>My AngularJS App</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="app.css">
+  <link rel="stylesheet" href="../bootstrap/css/bootstrap.css">
+</head>
+<body>
+  <div ng-view></div>
+  <div class="container text-center">
+      <h1 class="text-muted">Header1 Text Muted</h1>
+      <h2 class="text-primary">Header2 Text Primary</h2>
+      <h3 class="text-warning">Header3 Text Warning</h3>
+      <h4 class="text-danger">Header4 Text Danger</h4>
+      <h5 class="text-info">Header5 Text Info</h5>
+      <h6 class="text-success">Header6 Text Success</h6>
+  </div>
+  <div class="panel panel-body">
+    <div class="h3">Button View</div>
+    <div style="display: inline-block; width: 40%;"><button class="list-group-item list-group-item-heading">List Button Heading</button></div>
+    <div style="display: inline-block; width: 40%;"><button class="list-group-item list-group-item-heading" disabled>Disabled List Button Heading</button></div></br></br>
+    <div style="display: inline-block; width: 40%;"><button class="list-group-item">List Button</button></div>
+    <div style="display: inline-block; width: 40%;"><button class="list-group-item" disabled>Disabled List Button</button></div></br></br>
+    <div style="display: inline-block; width: 40%;"><button class="list-group-item-info">Info Button</button></div>
+    <div style="display: inline-block; width: 40%;"><button class="list-group-item-info" disabled>Disabled Info Button</button></div></br></br>
+    <div style="display: inline-block; width: 40%;"><button class="list-group-item-warning">Warning Button</button></div>
+    <div style="display: inline-block; width: 40%;"><button class="list-group-item-warning" disabled>Disabled Warning Button</button></div>
+    <div style="display: inline-block; width: 40%;">
+      <button class="btn-primary">Button Primary</button>
+      <button class="btn-warning">Button Primary</button>
+      <button class="btn-xs">Button XS</button>
+      <button class="btn-sm">Button Small</button>
+      <button class="btn-lg">Button Large</button></div><br/><br/><br/>
+    <div>
+      <div class="h3">Glyph Icons View</div>
+      <div class="glyphicon glyphicon-alert" style="width: 10%;">Alert Glyph</div>
+      <div class="glyphicon glyphicon-arrow-down" style="width: 10%;">Arrow Down Glyph</div>
+      <div class="glyphicon glyphicon-backward" style="width: 10%;"> Backward Glyph</div>
+      <div class="glyphicon glyphicon-step-backward" style="width: 10%;"> Step Backward Glyph</div>
+    </div>
+  </div>
+  <div class="panel panel-body">
+    <div class="h3">Anchor View</div>
+    <div style="display: inline-block; width: 80%;"><a class="list-group-item list-group-item-heading" href="#">List Anchor Heading</a></div>
+    <div style="display: inline-block; width: 80%;"><a class="list-group-item" href="#">List Anchor</a></div>
+    <div style="display: inline-block; width: 80%;"><a class="list-group-item-info" href="#">Info Anchor</a></div>
+    <div style="display: inline-block; width: 80%;"><a class="list-group-item-warning" href="#">Warning Anchor</a></div>
+  </div>
+
+  <div class="panel panel-body">
+    <div class="h3">Input View</div>
+    <div style="display: inline-block; width: 40%;"><input class="list-group-item list-group-item-heading" placeholder="List Input Heading"/></div>
+    <div style="display: inline-block; width: 40%;"><input class="list-group-item list-group-item-heading" placeholder="Disabled List Input Heading" disabled /></div></br></br>
+    <div style="display: inline-block; width: 40%;"><input class="list-group-item" placeholder="List Input"/></div>
+    <div style="display: inline-block; width: 40%;"><input class="list-group-item" disabled placeholder="Disabled List Input"/></div></br></br>
+    <div style="display: inline-block; width: 40%;"><input class="list-group-item-info" placeholder="Info Input"/></div>
+    <div style="display: inline-block; width: 40%;"><input class="list-group-item-info" disabled placeholder="Disabled Info Input"/></div></br></br>
+    <div style="display: inline-block; width: 40%;"><input class="list-group-item-warning" placeholder="Warning Input"/></div>
+    <div style="display: inline-block; width: 40%;"><input class="list-group-item-warning" disabled placeholder="Disabled Warning Input"/></div>
+  </div>
+
+  <div class="panel panel-body">
+    <div class="h3">Table View</div>
+    <table>
+      <tr>
+        <th class="col-xs-3">Column XS 3</th>
+        <th class="col-sm-1">Column Small 1</th>
+        <th class="col-lg-5">Column Large 5</th>
+      </tr>
+    </table>
+  </div>
+  <!-- In production use:
+  <script src="//ajax.googleapis.com/ajax/libs/angularjs/x.x.x/angular.min.js"></script>
+  -->
+  <script src="bower_components/angular/angular.js"></script>
+  <script src="bower_components/angular-route/angular-route.js"></script>
+  <script src="app.js"></script>
+  <script src="view1/view1.js"></script>
+  <script src="view2/view2.js"></script>
+  <script src="components/version/version.js"></script>
+  <script src="components/version/version-directive.js"></script>
+  <script src="components/version/interpolate-filter.js"></script>
+</body>
+</html>
