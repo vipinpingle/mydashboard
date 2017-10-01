@@ -1,0 +1,69 @@
+order of js files in header
+<link rel="stylesheet" media="all" href="/AppBuilder/dashapp/src/stylesheets/bootstrap.css">
+<link rel="stylesheet" media="all" href="/AppBuilder/dashapp/src/stylesheets/bootstrap-theme.css">
+<link rel="stylesheet" media="all" href="/AppBuilder/dashapp/src/stylesheets/font-awesome.min.css">
+<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="/AppBuilder/dashapp/src/stylesheets/datepicker.css">
+
+<!--[if lt IE 11]>
+<script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js"></script>
+<![endif]-->
+
+<script type="text/javascript" src="/AppBuilder/dashapp/src/lib/angular.min.js"></script>
+<script type="text/javascript" src="/AppBuilder/dashapp/src/lib/ui-bootstrap-tpls-2.5.0.js"></script>
+<script type="text/javascript" src="/AppBuilder/dashapp/src/lib/angular-ui-router.min.js"></script>
+<script type="text/javascript" src="/AppBuilder/dashapp/src/lib/d3.js"></script>
+<script type="text/javascript" src="/AppBuilder/dashapp/src/lib/dirPagination.js"></script>
+<script type="text/javascript" src="/AppBuilder/dashapp/src/lib/underscore-min.js"></script>
+<script type="text/javascript" src="/AppBuilder/dashapp/src/lib/ui-tree.js"></script>
+<script type="text/javascript" src="/AppBuilder/dashapp/src/lib/wexservices.js"></script>
+<script type="text/javascript" src="/AppBuilder/dashapp/src/lib/wexdirective.js"></script>
+<script type="text/javascript" src="/AppBuilder/dashapp/src/lib/moment.js"></script>
+<script type="text/javascript" src="/AppBuilder/dashapp/src/lib/moment-fquarter.js"></script>
+<script type="text/javascript" src="/AppBuilder/dashapp/src/lib/moment-timezone.js"></script>
+<script type="text/javascript" src="/AppBuilder/dashapp/src/lib/moment-timezone-with-data.js"></script>
+<script type="text/javascript" src="/AppBuilder/dashapp/src/lib/angularjs-dropdown-multiselect.min.js"></script>
+<script type="text/javascript" src="/AppBuilder/dashapp/src/lib/highcharts-regression.js"></script>
+<script type="text/javascript" src="https://rawgithub.com/laff/technical-indicators/master/technical-indicators.src.js"></script>
+<script type="text/javascript" src="/AppBuilder/dashapp/src/lib/daterangepicker.js"></script>
+<!--script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.2/jspdf.min.js"></script-->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.2/jspdf.debug.js"></script>
+<script type="text/javascript" src="/AppBuilder/dashapp/src/lib/FileSaver.min.js"></script>
+<body ng-app="wexdashboard" ng-cloak>
+
+
+Dashboard
+
+<link rel="stylesheet" href="/AppBuilder/dashapp/src/views/dashboard/customdashboard.css">
+<link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css">
+<script type="text/javascript" src="http://code.highcharts.com/maps/modules/map.js"></script>
+<script type="text/javascript" src="https://code.highcharts.com/maps/modules/data.js"></script>
+<script type="text/javascript" src="https://code.highcharts.com/maps/modules/drilldown.js"></script>
+<script type="text/javascript" src="https://code.highcharts.com/mapdata/countries/us/us-all.js"></script>
+<script type="text/javascript" src="/AppBuilder/dashapp/src/lib/angularjs-dropdown-multiselect.min.js"></script>
+<script src="/AppBuilder/dashapp/src/views/dashboard/dashboardapp.js"></script>
+<div ng-cloak>
+  <div ui-view></div>
+</div>
+
+invoices
+<script src="/AppBuilder/dashapp/src/lib/html2pdf.js"></script>
+
+ <script type="text/javascript" src="https://cdn.rawgit.com/canvg/canvg/master/rgbcolor.js"></script>
+ <script type="text/javascript" src="https://cdn.rawgit.com/canvg/canvg/master/canvg.js"></script>
+
+ <script type="text/javascript" src="/AppBuilder/dashapp/src/lib/daterangepicker.js"></script>
+ <link rel="stylesheet" type="text/css" href="/AppBuilder/dashapp/src/stylesheets/datepicker.css">
+
+Analysis
+
+<link rel="stylesheet" href="/AppBuilder/dashapp/src/stylesheets/bootstrap.min.css">
+<link rel="stylesheet" href="/AppBuilder/dashapp/src/views/analysis/customanalysis.css">
+<script type="text/javascript" src="/AppBuilder/dashapp/src/lib/daterangepicker.js"></script>
+<script type="text/javascript" src="/AppBuilder/dashapp/src/lib/bootstrap.min.js"></script>
+<script type="text/javascript" src="/AppBuilder/dashapp/src/lib/highcharts.exporting.js"></script>
+<script type="text/javascript" src="/AppBuilder/dashapp/src/lib/highcharts-clientside.js"></script>
+<script type="text/javascript" src="/AppBuilder/dashapp/src/lib/sf-export-csv.js"></script>
+<script type="text/javascript" src="/AppBuilder/dashapp/src/lib/moment-timezone-with-data-2012-2022.js"></script>
+<script type="text/javascript" src="/AppBuilder/dashapp/src/lib/moment-timezone.js"></script>
+<script type="text/javascript" src="/AppBuilder/dashapp/src/lib/moment-timezone-with-data.js"></script>
