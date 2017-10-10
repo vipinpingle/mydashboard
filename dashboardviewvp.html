@@ -1,0 +1,171 @@
+
+<div class="row">
+    <div class="col-lg-12">
+        <h1 class="page-header">Good morning. Here are your retained counsel insights:</h1>
+    </div>
+</div>
+<div class="row">
+<div class="col-lg-2">
+  <label for=map>USA : <a class="statelink" ng-click="resetToAllStates('All')" href="#" id="allstate">All States</a><span class="statecode" ng-show="showCountyView">-> {{selectedstateCode | uppercase}}</span><span ng-show="showCountyView" class="statecode"> -> <a id="countyreset" class="countylink">Reset Counties</a></span></label>
+</div>
+
+<div class="col-lg-2 col-lg-offset-8">
+     <div style="display: -webkit-inline-box; width:100%">
+          <div class="dropdown_label">View By:</div>
+          <div ng-hide="show_DropDown" ng-click="show_DropDown=true" class="top_view_label">{{selectValueDisplay}}</div>
+          <div  ng-show="show_DropDown" class="dropdown_wrapper" ng-mouseleave="show_DropDown=false" ng-click="show_DropDown=false">
+          <hierarchy-search dataset="list" event-listener="setPeriod(selectedVal)"></hierarchy-search>
+          </div>
+      </div>
+    </div>
+  </div>
+  </div>
+  <div class="row">
+  <div class="col-lg-5">
+    <div id="counties" style="display: -webkit-inline-box; width:100%" ng-show="showCountyView">
+        <div class="top_county_label">View All Counties:</div>
+        <div ng-dropdown-multiselect="" options="countyList" selected-model="searchSelectCountyModel" extra-settings="searchSelectAllSettings" events="countyChangeEventListeners"></div>
+    </div>
+    <label for="top_spending_exp" ng-if="displayCounties">Selected counties:{{displayCounties}}</label>
+  </div>
+
+  <div class="col-lg-3">
+    <!--label for=top_spending_exp>Spend/Budget (millions)</label-->
+      <label for=top_spending_exp>Spending</label>
+    </div>
+    <div class="col-lg-2">
+          <!--label for=hours_billed>Hours Billed (thousands)</label-->
+          <label for=hours_billed>Hours Billed</label>
+    </div>
+    <div class="col-lg-2">
+          <label for=total_anomalies>Anomalies</label>
+    </div>
+
+    </div>
+    <!--div class="row" ng-show="showCountyView">
+      <div class="col-lg-12">
+        <div><label for=map><a id="countyreset" class="statelink">Reset Counties</a></label></div>
+      </div>
+    </div-->
+    <div class="row">
+      <div class="col-lg-12">
+        <div ng-show="showCountyView">
+          <div><label class="orspace">OR</label></div>
+      </div> 
+    </div>
+    <div class="row">
+      <div class="col-lg-12">
+        <div ng-show="showCountyView">
+          <div><label for=info_red>Press Ctrl Key + Click on map to select multiple counties</label></div>
+      </div>
+    </div>
+<div class="row">
+    <div class="col-lg-4">
+          <div class="hc-map" dataselect="mapDataList" itemchanged="{{resettoallstates}}" datefilter="{{filterDefaultDate}}" countystate="{{showCountyView}}" selectedstate="{{selectedstateCode}}"></div>
+    </div>
+    <div class="col-lg-4">
+      <!--hc-Bar-Chart ng-if="dataSpendingByBudgetLoaded" class="barcontainer ng-isolate-scope" data="spendingHours" cat="spendingcategories"></hc-Bar-Chart-->
+        <div>
+          <div class="loader center-block" ng-if="!dataSpendingByBudgetLoaded">
+            <!--i class="icon-spinner icon-spin icon-5x"></i-->
+          </div>
+            <div ng-if="dataSpendingByBudgetLoaded">
+              <p class=FY-2016>{{topspendingyearselected}}
+              <p class=M ng-if="dataSpendingByBudgetLoaded">{{spendingHours}}
+            </div>
+        </div>
+    </div>
+    <!--div class="col-lg-2">
+      <hc-Bar-Chart ng-if="dataSpendingByBudgetLoaded" class="barcontainer ng-isolate-scope" data="spendingHours" cat="spendingcategories"></hc-Bar-Chart>
+    </div-->
+    <div class="col-lg-2">
+          <div class="loader center-block" ng-if="!dataHoursBilledLoaded">
+            <!--i class="icon-spinner icon-spin icon-5x"></i-->
+          </div>
+          <hc-Bar-Chart ng-if="dataHoursBilledLoaded" class="barcontainer ng-isolate-scope" data="billedHours" cat="billcategories"></hc-Bar-Chart>
+    </div>
+    <div class="col-lg-2">
+        <div class="loader center-block" ng-if="!dataViolationsLoaded">
+          <!--i class="icon-spinner icon-spin icon-5x"></i-->
+        </div>
+          <hc-Bar-Chart ng-if="dataViolationsLoaded" class="barcontainer ng-isolate-scope" data="violationHours" cat="violationcategories"></hc-Bar-Chart>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-lg-4">
+        <div>
+            <label for=tracked_matters>Tracked Matters</label>
+            <div class="loader center-block" ng-if="!dataTrackedMattersLoaded">
+              <!--i class="icon-spinner icon-spin icon-5x"></i-->
+            </div>
+
+            <!--div ng-if="topTrackedMatters.length <= 0">
+              <span class="col-bold-text" colspan="6" style="background:#f9f9f9;text-align:left;font-weight:100">No data found</span>
+            </div-->
+            <div ng-if="dataTrackedMattersLoaded" class="hc-Hb-Chart" label-link="/AppBuilder/matters?matter=" class="mattercontainer ng-isolate-scope" data="topTrackedMatters" cat="categories"></div>
+
+        </div>
+    </div>
+    <div class="col-lg-4">
+        <div>
+          <label for=top_firm_exp>Top Firm Expenditures</label>
+          <div class="loader center-block" ng-if="!dataTopExpendituresLoaded">
+            <!--i class="icon-spinner icon-spin icon-5x"></i-->
+          </div>
+            <div ng-if="dataTopExpendituresLoaded">
+              <table class="table table-striped">
+                <thead>
+                  <tr>
+                    <th>Firm</th>
+                    <th style="text-align:right;padding-right:10px;">Amount</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr ng-if="topStateExpenditureData.length <= 0">
+                    <td class="col-bold-text" colspan="6" style="background:#f9f9f9;text-align:left;font-weight:100">No data found</td>
+                  </tr>
+                  <tr ng-repeat="sf in topStateExpenditureData">
+                    <td ng-if="$odd" style="text-align:left;font-weight:100"><a href="/AppBuilder/firms?firm={{sf.key | filterHtmlChars }}"> {{ sf.key | filterHtmlChars }}</a></td>
+                    <td ng-if="$even" style="background:#f9f9f9;text-align:left;font-weight:100"><a href="/AppBuilder/firms?firm={{sf.key | filterHtmlChars }}"> {{ sf.key | filterHtmlChars  }}</a></td>
+                    <td ng-if="$odd" style="text-align:right;padding-right:10px;"> {{ sf.values | currency:"$":0}}</td>
+                    <td ng-if="$even" style="background:#f9f9f9;text-align:right;padding-right:10px;"> {{ sf.values | currency:"$":0 }}</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-4">
+        <div>
+          <label for=top_anomalies>Top Anomalies:</label>
+          <div class="loader center-block" ng-if="!dataTopAnamoliesLoaded">
+            <!--i class="icon-spinner icon-spin icon-5x"></i-->
+          </div>
+            <div ng-if="dataTopAnamoliesLoaded">
+              <table class="table table-striped">
+                <thead>
+                  <tr>
+                    <th>Firm</th>
+                    <th style="text-align:right;padding-right:10px;">Count</th>
+                    <th style="text-align:right;padding-right:10px;">Percent</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr ng-if="topFirmAnomaliesData.length <= 0">
+                    <td class="col-bold-text" colspan="6" style="background:#f9f9f9;text-align:left;font-weight:100">No data found</td>
+                  </tr>
+                  <tr ng-repeat="sf in topFirmAnomaliesData">
+                    <td ng-if="$odd" style="text-align:left;font-weight:100"> <a href="/AppBuilder/firms?tab=Anomalies&firm={{sf.name | filterHtmlChars }}">{{ sf.name | filterHtmlChars }}</a></td>
+                    <td ng-if="$even" style="background:#f9f9f9;text-align:left;font-weight:100"><a href="/AppBuilder/firms?tab=Anomalies&firm={{sf.name | filterHtmlChars  }}">{{ sf.name | filterHtmlChars }}</a></td>
+                    <td ng-if="$odd" style="text-align:right;padding-right:10px;"> {{ sf.value }}</td>
+                    <td ng-if="$even" style="background:#f9f9f9;text-align:right;padding-right:10px;"> {{ sf.value }}</td>
+                    <td ng-if="$odd" style="text-align:right;color:#c31820;padding-right:10px;"> {{ sf.percentage }}%</td>
+                    <td ng-if="$even" style="background:#f9f9f9;text-align:right;color:#c31820;padding-right:10px;"> {{ sf.percentage }}%</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+        </div>
+    </div>
+</div>
