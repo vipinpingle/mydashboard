@@ -1,0 +1,1000 @@
+   24  ansible --version
+   25  ls -atlr
+   26  clear
+   27  systemctl start docker
+   28  cd /opt/oseimages/openshift-ansible/
+   29  ls -atlr
+   30  clear
+   31  ls -altr
+   32  rm -r =\=2.6.5 
+   33  rm =\=2.6.5 
+   34  rm ==2.6.5 
+   35  rm =2.6.5
+   36  clear
+   37  ls -atlr
+   38  history
+   39  ping www.google.com
+   40  sudo ansible-playbook -i inventory/hosts.localhost playbooks/prerequisites.yml -vvv
+   41  yum install -y python-docker
+   42  clear
+   43  ls -atlr
+   44  clear
+   45  restart
+   46  shutdown -r
+   47  ping www.google.com
+   48  ls -atlr
+   49  clear
+   50  sudo ansible-playbook -i inventory/hosts.localhost playbooks/prerequisites.yml -vvv
+   51  ping www.google.com
+   52  docker images
+   53  clear
+   54  ls -altr
+   55  cd /opt/oseimages/openshift-ansible/
+   56  ls -atlr
+   57  history
+   58  clear
+   59  history
+   60  clear
+   61  ansible-playbook -i inventory/hosts.localhost playbooks/prerequisites.yml -vvv
+   62  ip addr
+   63  ansible-playbook -i inventory/hosts.localhost playbooks/prerequisites.yml -vvv
+   64  clear
+   65  ip addr
+   66  clear
+   67  shutdown -r
+   68  ip addr
+   69  clear
+   70  cd /opt/oseimages/openshift-ansible/
+   71  history
+   72  clear
+   73  ansible-playbook -i inventory/hosts.localhost playbooks/prerequisites.yml -vvv
+   74  ansible-playbook -i inventory/hosts.localhost playbooks/deploy_cluster.yml -vvv
+   75   
+   76  oc login -u system:admin
+   77  sublime
+   78  oc apply -f https://github.com/strimzi/strimzi-kafka-operator/releases/download/0.9.0/strimzi-cluster-operator-0.9.0.yaml -n mykafkaproject
+   79  ping github.com
+   80  git 
+   81  clear
+   82  l s-atlr
+   83  oc apply -f https://github.com/strimzi/strimzi-kafka-operator/releases/download/0.9.0/strimzi-cluster-operator-0.9.0.yaml -n 
+   84  oc new-project mykafkaproject
+   85  oc new-project VPkafka
+   86  oc new-project vpkafka
+   87  oc delete mykafkaproject
+   88  oc projects
+   89  oc delete mykafkaproject
+   90  oc 
+   91  oc delete project mykafkaproject
+   92  ls -atlr
+   93  oc get projects
+   94  oc projects
+   95  oc apply -f https://github.com/strimzi/strimzi-kafka-operator/releases/download/0.9.0/strimzi-cluster-operator-0.9.0.yaml -n vpkafka
+   96  oc apply -f https://raw.githubusercontent.com/strimzi/strimzi-kafka-operator/0.9.0/examples/kafka/kafka-persistent.yaml -n vpkafka
+   97  oc get pods -n vpkafka -w
+   98  clear
+   99  ls -atklr
+  100  oc logs
+  101  oc projects
+  102  oc project vpkafka
+  103  oc logs vpkafka
+  104  oc get projects
+  105  oc get pods
+  106  oc logs strimzi-cluster-operator-5d89f8bb58-jb99q
+  107  oc apply -f https://github.com/strimzi/strimzi-kafka-operator/releases/download/0.9.0/strimzi-cluster-operator-0.9.0.yaml -n myproject
+  108  oc apply -f https://github.com/strimzi/strimzi-kafka-operator/releases/download/0.9.0/strimzi-cluster-operator-0.9.0.yaml -n vpkafka
+  109  oc get pods -n vpkafka -w
+  110  ls -altr
+  111  oc get pods
+  112  oc delete pod strimzi-cluster-operator-5d89f8bb58-jb99q
+  113  ls -atlr
+  114  oc get pods -n vpkafka -w
+  115  clear
+  116  ls -atlr
+  117  oc delete project vpkafka
+  118  oc projects
+  119  oc delete -f vpkafka
+  120  oc delete project vpkafka
+  121  clear
+  122  ls -atlr
+  123  history
+  124  oc get pods -n vpkafka -w
+  125  oc projects
+  126  oc apply -f https://github.com/strimzi/strimzi-kafka-operator/releases/download/0.9.0/strimzi-cluster-operator-0.9.0.yaml -n myproject
+  127  oc new-project myproject
+  128  oc projects
+  129  oc apply -f https://github.com/strimzi/strimzi-kafka-operator/releases/download/0.9.0/strimzi-cluster-operator-0.9.0.yaml -n myproject
+  130  clear
+  131  oc apply -f https://raw.githubusercontent.com/strimzi/strimzi-kafka-operator/0.9.0/examples/kafka/kafka-persistent.yaml -n myproject
+  132  history
+  133  oc get pods -n myproject -w
+  134  clear
+  135  oc get pods -n myproject -w
+  136  clear
+  137  ls -altr
+  138  oc roles
+  139  oc get users
+  140  oc get projects
+  141  oc project myproject
+  142  oc login https://192.168.1.189:8443 --token=k0k7BLxkYXLBafiAQzm3doF0uTKtLEqylyrQlbr7PME
+  143  ls -atlr
+  144  oc get project
+  145  oc get projects
+  146  oc get rolebindings
+  147  clear
+  148  history
+  149  oc login -u system:admin
+  150  oc project myproject
+  151  oc projects
+  152  oc get pods
+  153  oc project myproject
+  154  oc logs myproject
+  155  oc logs project myproject
+  156  oc logs my-cluster-zookeeper-0
+  157  oc logs strimzi-cluster-operator-5d89f8bb58-q74c5
+  158   clear
+  159  ls -atlr
+  160  oc get pods
+  161  oc remove pod my-cluster-zookeeper-0
+  162  oc delete pod my-cluster-zookeeper-0
+  163  oc delete pod my-cluster-zookeeper-1
+  164  oc delete pod my-cluster-zookeeper-2
+  165  oc delete pod strimzi-cluster-operator-5d89f8bb58-q74c5
+  166  ls -latr
+  167  oc get projects
+  168  oc delete myproject
+  169  oc delete project myproject
+  170  oc delete project mypython
+  171  clear
+  172  oc gets project
+  173  oc get projects
+  174  clear
+  175  oc login https://192.168.1.189:8443 --token=k0k7BLxkYXLBafiAQzm3doF0uTKtLEqylyrQlbr7PME
+  176  history
+  177  oc apply -f https://github.com/strimzi/strimzi-kafka-operator/releases/download/0.9.0/strimzi-cluster-operator-0.9.0.yaml
+  178  oc logout
+  179  oc login -u system:admin
+  180  oc logout
+  181  oc get projects
+  182  oc delete project myproject
+  183  oc login https://192.168.1.189:8443 --token=pqi7U_RiYIjUHcL_fCYXGf31ev9LRGIeg-x4jwnUaqI
+  184  oc new-project myproject
+  185  oc get projects
+  186  oc apply -f https://github.com/strimzi/strimzi-kafka-operator/releases/download/0.9.0/strimzi-cluster-operator-0.9.0.yaml -n myproject
+  187  clear
+  188  exit
+  189  chmod -R 777 /var/lib/
+  190  clear
+  191  ls -altr
+  192  pmon
+  193  nmon
+  194  ps -ef 
+  195  oc get pods
+  196  cd /var/lib
+  197  ls -atlr
+  198  cd zookeeper
+  199  cd .. 
+  200  cd /
+  201  ps -ef | grep zookeeper
+  202  find . -name strimzi
+  203  docker images
+  204  clear
+  205  ls -atlr
+  206  cd /usr/lib
+  207  ls -atlr
+  208  cd zookeeper
+  209  cd ../
+  210  cd /
+  211  find . -name zoo.cfg
+  212  sudo su -
+  213  cd /opt
+  214  ls -atlr
+  215  cd rh
+  216  ls -atlr
+  217  cd .. 
+  218  cd cni
+  219  ls -atlr
+  220  cd bin
+  221  ls -atlr
+  222  cd ..
+  223  clear
+  224  cd .. 
+  225  clear
+  226  ls -atlr
+  227  ls -altr
+  228  oc get pods
+  229  exit
+  230  oc status
+  231  oc get pods
+  232  oc get pv
+  233  oc get pvc
+  234  ls -latr
+  235  cd /var/lib/zookeeper/
+  236  cd /var/lib
+  237  ls -atlr
+  238  cd /var/docker
+  239  ls -altr
+  240  cd /var/lib/docker
+  241  ls -altr
+  242  cd containers/
+  243  ls -atlr
+  244  cd .. 
+  245  clear
+  246  cd .. 
+  247  clear
+  248  ls -atlr
+  249  cd .. 
+  250  clear
+  251  ls -atlr
+  252  cd /var/kerberos/
+  253  ls -atlr
+  254  cd .. 
+  255  clear
+  256  ls -atlr
+  257  cd /opt
+  258  ls -atlr
+  259  cd oseimages/
+  260  ls -atlr
+  261  cd openshift-ansible/
+  262  ls -atlr
+  263  cd .. 
+  264  clear
+  265  cd .. 
+  266  cd 
+  267  clear
+  268  oc get pods
+  269  oc delete pod my-cluster-zookeeper-0
+  270  oc delete pod my-cluster-zookeeper-1
+  271  oc delete pod my-cluster-zookeeper-2
+  272  clear
+  273  ls -atlr
+  274  oc get pods
+  275  cd /var/lib
+  276  ls -altr
+  277  cd zookeeper
+  278  cd .. 
+  279  chmod -R 777 lib/
+  280  clear
+  281  ls -atlr
+  282  oc get projects
+  283  oc login -u system:admin
+  284  oc delete project myproject
+  285  clear
+  286  oc get pods
+  287  oc delete pod my-cluster-zookeeper-0
+  288  oc delete pod my-cluster-zookeeper-1
+  289  oc get pods
+  290  clear
+  291  ls -atlr
+  292  docker images
+  293  docker rmi 1396cf94a008
+  294  clear
+  295  docker images
+  296  docker rmie51e7f4c9198
+  297  docker rmi e51e7f4c9198
+  298  docker rmi ab052359ad74
+  299  clear
+  300  docker
+  301   docker images
+  302  clear
+  303  oc get pv
+  304  oc get pvc
+  305  oc create serviceaccount pv-recycler-controller -n openshift-infra
+  306  oc get pv
+  307  oc delete pv pv0001
+  308  oc delete pv pv0002
+  309  oc delete pv pv0003
+  310  oc delete pv pv0004
+  311  clear
+  312  ls -atlr
+  313  cd /opt/oseimages/i
+  314  cd /opt/oseimages/
+  315  ls -atlr
+  316  history
+  317  exit
+  318  hisotry
+  319  history
+  320  l
+  321  ls =alt
+  322  ls -latr
+  323  which origin-docker-excluder
+  324  rpm -qa | grep  origin-docker-excluder
+  325  ls -atlr
+  326  cd /opt/oseimages/openshift-ansible/inventory/
+  327  ls -atlr
+  328  more hosts.localhost 
+  329  clear
+  330  cd .. 
+  331  clear
+  332  ls -latr
+  333  which python-docker
+  334  which python
+  335  which docker
+  336  cd /etc/sysconfig/
+  337  ls -latr
+  338  docker
+  339  ls -latr
+  340  which docker
+  341  docker --version
+  342  history
+  343  which python-docker
+  344  rpm -qa | grep python-docker
+  345  docker images
+  346  ls -atlr
+  347  clear
+  348  ls -atlr
+  349  clear
+  350  ls -atlr
+  351  cd atomic
+  352  atomoic
+  353  atomic
+  354  clear
+  355  ls -atlr
+  356  docker images
+  357  docker info
+  358  mount | column -t
+  359  clear
+  360  rpm -qa | grep cockpit-bridge
+  361  setstatus
+  362  sestatus
+  363  ls -atlr
+  364  cd /opt/images
+  365  cd /opt/oseimages/
+  366  ls -atlr
+  367  cd strimzi-kafka-operator/
+  368  ls -atlr
+  369  history
+  370  oc get pv
+  371  oc delete pv myproject/data-my-cluster-zookeeper-1
+  372  oc delete pv data-my-cluster-zookeeper-1
+  373  oc delete pv data-my-cluster-zookeeper-0
+  374  ls -atlr
+  375  clear
+  376  hisotry
+  377  history
+  378  ls -latr
+  379  oc apply -f https://github.com/strimzi/strimzi-kafka-operator/releases/download/0.9.0/strimzi-cluster-operator-0.9.0.yaml
+  380  history
+  381  more https://github.com/strimzi/strimzi-kafka-operator/releases/download/0.9.0/strimzi-cluster-operator-0.9.0.yaml
+  382  ls -atlr
+  383  cd examples
+  384  ls -atlr
+  385  cd kafka
+  386  ls -atlr
+  387  more kafka-ephemeral.yaml 
+  388  ansible --version
+  389  ls -atlr
+  390  oc apply -f kafka-ephemeral.yaml -n myproject
+  391  oc get pods -w
+  392  clear
+  393  l s-atl
+  394  grubby --info
+  395  grubby --info All
+  396  grubby --info=All
+  397  docker images
+  398  rpm -q | grep Py
+  399  rpm -qa | grep 
+  400  rpm -q | grep origin
+  401  rpm -qa | grep origin
+  402  ls -latr /var/log
+  403  tail -100 /var/log/messages
+  404  docker images
+  405  rpm -qa | grep origin-clients
+  406  rpm -qa | grep origi
+  407  rpm -qa | grep openshift
+  408  rpm -qa
+  409  cd /var/lib/origin
+  410  ls =altr
+  411  ls a-tlr
+  412  ls -l
+  413  cd openshift.local.config/
+  414  ls -atlr
+  415  cd node 
+  416  ls -atlr
+  417  cd .. 
+  418  clear
+  419  ls -atlr
+  420  cd .. 
+  421  ls -atlr
+  422  cd openshift.local.
+  423  cd openshift.local.volumes
+  424  ls -altr
+  425  cd pods
+  426  ls -altr
+  427  cd .. 
+  428  clear
+  429  cd /etc/origin
+  430  ls -atlr
+  431  cd node
+  432  ls -atlr
+  433  more resolv.conf 
+  434  ip addr
+  435  clear
+  436  ls -atlr
+  437  rpm -qai origin-clients
+  438  ansible --version
+  439  rpm -qa | grep origin
+  440  docker images
+  441  pwd
+  442  cd /opt/oseimages/openshift-ansible/
+  443  ls -atlr
+  444  cd inventory/
+  445  ls -atlr
+  446  more hosts.localhost 
+  447   l s-altr
+  448  ls alt
+  449  cd /etc/
+  450  ls -atlr
+  451  cd logrotate.d/
+  452  cd .. 
+  453  cd /var/log
+  454  ls -atlr
+  455  more messages
+  456  ls -atlr
+  457  cd .. 
+  458  cd log
+  459  ls -atlr
+  460  ls -atlr a
+  461  *
+  462  ls -atlr a*
+  463  cd /root
+  464  ls -atlr
+  465  more openshift-ansible.log 
+  466  history
+  467  clear
+  468  loclhoast
+  469  hostname
+  470  vi hosts
+  471  cd /etc/
+  472  ls -atlr
+  473  more hosts
+  474  hostname
+  475  clear
+  476  ls -atlr
+  477  clear
+  478  oc login -u system:admin
+  479  oc get pods
+  480  clear
+  481  ls -atlr
+  482  clear
+  483  docker images
+  484  oc get nodes -l
+  485  oc get nodes 
+  486  cd /etc/cni
+  487  ls -atlr
+  488  cd net.d
+  489  ls -atlr
+  490  more 80-openshift-network.conf 
+  491  exit
+  492  oc get pods
+  493  cd /bin
+  494  ls -atlr
+  495  ls -latr oc*
+  496  oc get pods
+  497  clear
+  498  ls -atlr
+  499  rpm -qa | grep origin
+  500  docker images
+  501  ansible --version
+  502  ip addr
+  503  hostname
+  504  oc 
+  505  oc describe pods
+  506  history
+  507  ls -atlr
+  508  history
+  509  ls -atlr
+  510  cd /opt/
+  511  ls -atlr
+  512  cd oseimages/
+  513  ls -atlr
+  514  cd strimzi-kafka-operator/
+  515  ls -atlr
+  516  cd install/
+  517  ls -atlr
+  518  cd .. 
+  519  clear
+  520  ls -atlr
+  521  cd example
+  522  cd examples/
+  523  ls -atlr
+  524  cd kafka
+  525  ls -atlr
+  526  vi kafka-ephemeral.yaml 
+  527  ls -atlr
+  528  cd .. 
+  529  ls -atlr
+  530  cd .. 
+  531  ls -atlr
+  532  cd test/
+  533  ls -atlr
+  534  cd src/
+  535  ls -atlr
+  536  cd main/
+  537  ls -atlr
+  538  cd java/
+  539  la -tlr
+  540  ls -altr
+  541  cd ip
+  542  cd io
+  543  ls -atlr
+  544  cd strimzi/
+  545  ls -tla
+  546  cd test
+  547  ls -altr
+  548  more TestUtils.java 
+  549   clear
+  550  ls -atlr
+  551  cd ..
+  552  ls -atlr
+  553  cd .. 
+  554  cds .. 
+  555  cd ..
+  556  ls -atlr
+  557  cd .. 
+  558  ls -atlr
+  559  cd .. 
+  560  ls -atlr
+  561  cd .. 
+  562  ls -atlr
+  563  cd doc
+  564  cd docker-images/
+  565  ls =atlr
+  566  ls -altr
+  567  cd java-base/
+  568  ls -atlr
+  569  cd scripts/
+  570  ls -=atlr
+  571  ls -atlr
+  572  more launch_java.sh 
+  573  clear
+  574  ls -atlr
+  575  cd .. 
+  576  ls -atlr
+  577  more Makefile 
+  578  cd .. 
+  579  more Dockerfile
+  580  ls -atlr
+  581  cd java-base/
+  582  ls -atlr
+  583  more Dockerfile 
+  584  cd .. 
+  585  ls -atlr
+  586  docker images
+  587  ls -altr
+  588  cd java-base/
+  589  ls -atlr
+  590  make all
+  591  ls -altr
+  592  pwd
+  593  cd ..
+  594  clear
+  595  cd .. 
+  596  clear
+  597  ls -atlr
+  598  cd .. 
+  599  clear
+  600  ls -atlr
+  601  clear
+  602  ls -atlr
+  603  pwd
+  604  git clone https://github.com/strimzi/client-examples.git
+  605  ls -atlr
+  606  cd client-examples/
+  607  ls -atlr
+  608  make all
+  609  yum install maven
+  610  yum install apache-maven
+  611  sudo yum install maven
+  612  java -version
+  613  wget http://mirrors.sonic.net/apache/maven/maven-3/3.5.3/binaries/apache-maven-3.5.3-bin.zip
+  614  wget https://mirrors.sonic.net/apache/maven/maven-3/3.6.0/binaries/apache-maven-3.6.0-bin.zip
+  615  ls a-tlr
+  616  ls -atlr
+  617  pwd
+  618  mv apache-maven-3.6.0-bin.zip /opt/oseimages/
+  619  ls -atlr
+  620  cd .. 
+  621  ls
+  622  unzip apache-maven-3.6.0-bin.zip 
+  623  ls a-tlr
+  624  ls -altr
+  625  mv apache-maven-3.5.3 maven
+  626  mv apache-maven-3.6.0 maven
+  627  ls -atlr
+  628  nano /etc/profile.d/maven.sh
+  629  vi /etc/profile.d/maven.sh
+  630  ls -atlr
+  631  chmod 775 export PATH=/opt/maven/bin:${PATH}
+  632  chmod 775 /etc/profile.d/maven.sh 
+  633  /etc/profile.d/maven.sh 
+  634  mvn -version
+  635  mvn version
+  636  exit
+  637  ls -altr
+  638  mvn -version
+  639  clear
+  640  ls -atlr
+  641  cd /opt/oseimages/
+  642  ls -atlr
+  643  docker images
+  644  ls -atlr
+  645  cd client-examples/
+  646  ls -atlkr
+  647  make all
+  648  yum install java-1.8.0-openjdk
+  649  ls -atlr
+  650  make all
+  651  exit
+  652  oc get pods
+  653  oc rsh my-cluster-kafka-0
+  654  clear
+  655  ls -atlr
+  656  cd /opt/oseimages/
+  657  ls -latr
+  658  cd strimzi-kafka-operator/
+  659  ls -atlr
+  660  cd examples/
+  661  ls -atlr
+  662  cd kafka
+  663  ls -atlr
+  664  more kafka-ephemeral.yaml 
+  665  exit
+  666  clear
+  667  ls -atlr
+  668  docker images
+  669  clear
+  670  ls -atlr
+  671  cd /opt/oseimages/
+  672  ls -atlr
+  673  cd mq-container/
+  674  ls -latr
+  675  rm -rf downloads/
+  676  ls -atlr
+  677  history
+  678  ls -atlr
+  679  cd .. 
+  680  clear
+  681  ls -latr
+  682  oc status
+  683  oc get pods
+  684  oc delete pod my-cluster-kafka-0
+  685  oc delete pod my-cluster-kafka-1
+  686  oc delete pod my-cluster-kafka-2
+  687  lcear
+  688  clear
+  689  ls -atlr
+  690  oc get pods
+  691  cd .. 
+  692  ls -atlr
+  693  cd oseimages/
+  694  ls -atlr
+  695  cd strimzi-kafka-operator/
+  696  ls -atlr
+  697  cd examples/kafka/
+  698  ls -atlr
+  699  more kafka-persistent.yaml 
+  700  cd .. 
+  701  ls -atlr
+  702  cd kafka
+  703  ls -atlr
+  704  more kafka-ephemeral.yaml 
+  705  cd .. 
+  706  clear
+  707  ls -atlr
+  708  oc get pods
+  709  clear
+  710  pwd
+  711  cd ../..
+  712  ls -atlr
+  713  oc get pods
+  714  clear
+  715  ls -atr
+  716  git clone https://github.com/IBM/charts.git
+  717  ls -atlr
+  718  cd charts/
+  719  ls -atlr
+  720  cd stable/
+  721  ls -atlr
+  722  cd ibm-mqadvanced-server-dev/
+  723  LS -ATLR
+  724  ls -latr
+  725  cd .. 
+  726  pwd
+  727  c d.. 
+  728  cd ..
+  729  ls -atlr
+  730  cd ..
+  731  ls -atlr
+  732  mkdir ibmmqconfi
+  733  mv ibmmqconfi ibmmqconfig
+  734  cd ibmmqconfig/
+  735  vi podsecuritypolicy.yaml
+  736  vi clusterrole.yaml
+  737  oc create -f podsecuritypolicy.yaml 
+  738  oc create -f clusterrole.yaml 
+  739  helm install --name foo mylocal-repo/ibm-mqadvanced-server-dev --set license=accept --tls
+  740  export TILLER_NAMESPACE=tiller
+  741  curl -s https://storage.googleapis.com/kubernetes-helm/helm-v2.9.0-linux-amd64.tar.gz | tar xz
+  742  ls a-tlr
+  743  ls -atlr
+  744  cd linux-amd64/
+  745  ls -atlr
+  746  ./helm init --client-only
+  747  oc process -f https://github.com/openshift/origin/raw/master/examples/helm/tiller-template.yaml -p TILLER_NAMESPACE="${TILLER_NAMESPACE}" -p HELM_VERSION=v2.9.0 | oc create -f -
+  748  oc projects
+  749  oc new-project tiller
+  750  oc process -f https://github.com/openshift/origin/raw/master/examples/helm/tiller-template.yaml -p TILLER_NAMESPACE="${TILLER_NAMESPACE}" -p HELM_VERSION=v2.9.0 | oc create -f -
+  751  oc rollout status deployment tiller
+  752  /helm version
+  753  ./helm version
+  754  helm install --name foo mylocal-repo/ibm-mqadvanced-server-dev --set license=accept --tls
+  755  ./helm install --name foo mylocal-repo/ibm-mqadvanced-server-dev --set license=accept --tls
+  756  pwd
+  757  ls -atlr
+  758  pwd
+  759  cd .. 
+  760  ls -atlr
+  761  cd .. 
+  762  ls -atlr
+  763  cd ibmmqconfig/
+  764  ls -atlr
+  765  cd linux-amd64/
+  766  ls -atlr
+  767  pwd
+  768  helm repo list
+  769  ./helm repo list
+  770  ./helm install --name foo http://127.0.0.1:8879/charts/ibm-mqadvanced-server-dev --set license=accept --tls
+  771  clear
+  772  ./helm repo list
+  773  ./helm install --name foo local/ibm-mqadvanced-server-dev --set license=accept --tls
+  774  ./helm install --name foo stable/ibm-mqadvanced-server-dev --set license=accept --tls
+  775  ./helm install --name foo https://github.com/IBM/charts/stable/ibm-mqadvanced-server-dev --set license=accept --tls
+  776  ./helm repo add ibmcharts https://github.com/IBM/charts
+  777  ./helm repo add ibmcharts https://github.com/IBM/charts/tree/master/repo/stable
+  778  ./helm repo add ibm-charts https://raw.githubusercontent.com/IBM/charts/master/repo/stable/
+  779  history
+  780  ./helm install --name foo ibm-charts/ibm-mqadvanced-server-dev --set license=accept --tls
+  781  ./helm install --name foo ibm-charts/ibm-mqadvanced-server-dev --set license=accept
+  782  ./helm version
+  783  oc process -f https://github.com/openshift/origin/raw/master/examples/helm/tiller-template.yaml -p TILLER_NAMESPACE="${TILLER_NAMESPACE}" -p HELM_VERSION=v2.7.2 | oc create -f -
+  784  oc project tiller
+  785  oc projects
+  786  oc delete tiller 
+  787  oc delete project tiller 
+  788  oc projects
+  789  oc project myproject
+  790  oc delete project tiller
+  791  oc projects
+  792  history
+  793  oc process -f https://github.com/openshift/origin/raw/master/examples/helm/tiller-template.yaml -p TILLER_NAMESPACE="${TILLER_NAMESPACE}" -p HELM_VERSION=v2.7.2 | oc create -f -
+  794  oc new-project tiller
+  795  export TILLER_NAMESPACE=tiller
+  796  oc new-project tiller
+  797  oc process -f https://github.com/openshift/origin/raw/master/examples/helm/tiller-template.yaml -p TILLER_NAMESPACE="${TILLER_NAMESPACE}" -p HELM_VERSION=v2.7.2 | oc create -f -
+  798  ./helm version
+  799  ./helm install --name foo ibm-charts/ibm-mqadvanced-server-dev --set license=accept
+  800  pwd
+  801  ls -atlr
+  802  cd .. 
+  803  ls -atlr
+  804  rm -rf linux-amd64/
+  805  curl -s https://storage.googleapis.com/kubernetes-helm/helm-v2.7.2-linux-amd64.tar.gz | tar xz
+  806  ls a-tlr
+  807  ls -altr
+  808  cd linux-amd64/
+  809  ls -atlr
+  810  ./helm version
+  811  clear
+  812  ls -atlr
+  813  history
+  814  ./helm install --name foo ibm-charts/ibm-mqadvanced-server-dev --set license=accept
+  815  oc delete project tilError: Chart incompatible with Tiller v2.7.2ler
+  816  oc delete project tiller
+  817  A
+  818  oc delete project tiller
+  819  cd .. 
+  820  ls -atlr
+  821  rm -rf linux-amd64/
+  822  l s-altr
+  823  clear
+  824  ls -latr
+  825  history
+  826  oc delete project tiller
+  827  oc new-project tiller
+  828  oc process -f https://github.com/openshift/origin/raw/master/examples/helm/tiller-template.yaml -p TILLER_NAMESPACE="${TILLER_NAMESPACE}" -p HELM_VERSION=v2.9.1 | oc create -f -
+  829  curl -s https://storage.googleapis.com/kubernetes-helm/helm-v2.9.1-linux-amd64.tar.gz | tar xz
+  830  cd linux-amd64/
+  831  ./helm version
+  832  ./helm repo list
+  833  ./helm install --name foo ibm-charts/ibm-mqadvanced-server-dev --set license=accept
+  834  clear
+  835  ls -atlr
+  836  cd .. 
+  837  ls -atlr
+  838  oc apply -f podsecuritypolicy.yaml -n tiller
+  839  oc apply -f clusterrole.yaml -n tiller
+  840  cd linux-amd64/
+  841  ./helm install --name foo ibm-charts/ibm-mqadvanced-server-dev --set license=accept
+  842  helm ls --all
+  843  ./helm ls --all
+  844  oc policy add-role-to-user edit "system:serviceaccount:${TILLER_NAMESPACE}:tiller"
+  845  ./helm delete foo
+  846  ./helm install --name foo ibm-charts/ibm-mqadvanced-server-dev --set license=accept
+  847  ./helm del --purge foo
+  848  ./helm install --name foo ibm-charts/ibm-mqadvanced-server-dev --set license=accept
+  849  oc get pods
+  850  docker images
+  851  clear
+  852  ls -altr
+  853  kubectl
+  854  clear
+  855  kubectl get pods
+  856  kubectl get all -l release=foo
+  857  ./helm delete foo
+  858  history
+  859  ./helm del --purge foo
+  860  clear
+  861  ./helm install --name ibm-mq-release ibm-charts/ibm-mqadvanced-server-dev --set license=accept
+  862  MQ_ADMIN_PASSWORD=$(kubectl get secret --namespace tiller ibm-mq-release-ibm-mq -o jsonpath="{.data.adminPassword}" | base64 --decode; echo)
+  863  $(kubectl get secret --namespace tiller ibm-mq-release-ibm-mq -o jsonpath="{.data.adminPassword}" | base64 --decode; echo)
+  864  kubectl get pods
+  865  ls a-tlr
+  866  cd .. 
+  867  ls atlr
+  868  ls -alt
+  869  vi podsecuritypolicy.yaml 
+  870  vi clusterrole.yaml 
+  871  clear
+  872  ls -atlr
+  873  more podsecuritypolicy.yaml 
+  874  oc project
+  875  ls oc policy add-role-to-user edit "system:serviceaccount:${TILLER_NAMESPACE}:tiller"-atlr
+  876  oc projects
+  877  oc policy add-role-to-user edit "system:serviceaccount:${TILLER_NAMESPACE}:tiller"
+  878  kubectl create rolebinding ibm-mq-psp-rolebinding --clusterrole=ibm-mq-psp-clusterrole --serviceaccount=tiller:tiller --namespace=tiller
+  879  lcear
+  880  clear
+  881  l s-altr
+  882  oc get pods
+  883  history
+  884  ./helm del --purge ibm-mq-release
+  885  ls -altr
+  886  cd linux-amd64/
+  887  ls -atlr
+  888  ./helm list --all
+  889  ./helm del --purge ibm-mq-release
+  890  ./helm install --name ibm-mq-release ibm-charts/ibm-mqadvanced-server-dev --set license=accept
+  891  oc describe scc privileged
+  892  kubectl create rolebinding ibm-mq-psp-rolebinding --clusterrole=ibm-mq-psp-clusterrole --serviceaccount=tiller:default --namespace=tiller
+  893  kubectl delete rolebinding ibm-mq-psp-rolebinding
+  894  kubectl create rolebinding ibm-mq-psp-rolebinding --clusterrole=ibm-mq-psp-clusterrole --serviceaccount=tiller:default --namespace=tiller
+  895  clear
+  896  ./helm list --all
+  897  ./helm del --prune ibm-mq-release
+  898  history
+  899  ./helm del --purge ibm-mq-release
+  900  ./helm install --name ibm-mq-release ibm-charts/ibm-mqadvanced-server-dev --set license=accept
+  901  oc describe scc privileged
+  902  clear
+  903  oc adm policy add-scc-to-user-privileged -n tiller -z default
+  904  oc adm policy add-scc-to-user privileged -n tiller -z default
+  905  oc describe scc privileged
+  906  ./helm install --name ibm-mq-release ibm-charts/ibm-mqadvanced-server-dev --set license=accept
+  907  ./helm del --purge ibm-mq-release
+  908  ./helm install --name ibm-mq-release ibm-charts/ibm-mqadvanced-server-dev --set license=accept
+  909  kubectl get pods -w
+  910  oc logs -f ibm-mq-release-ibm-mq-0 --tail=100
+  911  oc get pvs
+  912  oc get pv
+  913  ls -atlr
+  914  cd .. 
+  915  ls -atlr
+  916  c d.. 
+  917  cd .. 
+  918  ls -atlr
+  919  vi pv.yaml 
+  920  oc apply -f pv.yaml 
+  921  clear
+  922  docker images
+  923  docker pull ibmcom/mq:9.1.1.0
+  924  lcear
+  925  docker images
+  926  clear
+  927  ls -atlr
+  928  oc edit scc tiller
+  929  oadm policy add-scc-to-user tiller -z default
+  930  history
+  931  oc describe scc priviledge
+  932  oc describe scc privileged
+  933  oc edit scc tiller:default
+  934  clar
+  935  clear
+  936  l s-atlr
+  937  oc edit scc anyuid
+  938  oc adm policy add-scc-to-user anyuid system:serviceaccount:tiller:default
+  939  oc edit scc anyuid
+  940  oc adm policy add-scc-to-group anyuid system:authenticated
+  941  oc edit scc anyuid
+  942  clear
+  943  history
+  944  oc adm policy add-scc-to-user anyuid system:serviceaccount:tiller:default
+  945  history
+  946  ls -atlr
+  947  cd ibmmqconfig/
+  948  ls -atlr
+  949  cd linux-amd64/
+  950  ls -atlr
+  951  ./helm del --prune ibm-mq-release
+  952  ./helm del --purge ibm-mq-release
+  953  ./helm install --name foo ibm-charts/ibm-mqadvanced-server-dev --set license=accept
+  954  oc edit scc anyuid
+  955  clear
+  956  history
+  957  oc adm policy add-scc-to-group anyuid system:authenticated
+  958  oc adm policy add-scc-to-user anyuid system:serviceaccount:tiller:default
+  959  oc edit scc anyuid
+  960  oc adm policy add-scc-to-user anyuid system:serviceaccount:tiller:default
+  961  oc edit scc anyuid
+  962  oc adm policy add-scc-to-user anyuid system:serviceaccount:tiller:mqm
+  963  history
+  964  oc adm policy add-scc-to-user anyuid system:serviceaccount:tiller:default
+  965  clear
+  966  ls -atlr
+  967  history
+  968  ./helm del --purge foo
+  969  ./helm install --name mymq ibm-charts/ibm-mqadvanced-server-dev --set license=accept
+  970  oc logs -f mymq-ibm-mq-0
+  971  oc container
+  972  oc container list
+  973  oc container ls
+  974  clear
+  975  oc get pv
+  976  clear
+  977  ./helm del --purge ibmmq
+  978  ./helm list --all
+  979  ./helm del --purge mymq
+  980  ./helm install --name mymq ibm-charts/ibm-mqadvanced-server-dev --set license=accept
+  981  cd .. 
+  982  ls -atlr
+  983  cd .. 
+  984  ls -alr
+  985  vi pv.yaml 
+  986  oc apply -f pv.yaml 
+  987  oc pv
+  988  oc get pv
+  989  oc delete pvc tiller/data-ibm-mq-release-ibm-mq-0
+  990  oc delete tiller/data-ibm-mq-release-ibm-mq-0
+  991  oc delete pvc tiller/data-ibm-mq-release-ibm-mq-0
+  992  oc delete pvc/data-ibm-mq-release-ibm-mq-0
+  993  oc delete pvc/data-foo-ibm-mq-0
+  994  oc get pvc
+  995  oc get pv
+  996  oc delete pvc/tiller/data-foo-ibm-mq-0
+  997  oc delete pvc/data-foo-ibm-mq-0
+  998  oc project
+  999   oc get pvc --all-namespaces
+ 1000  oc get pv
+ 1001  oc delete pv/pv010
+ 1002  oc delete pv/pv0004
+ 1003  clear
+ 1004  ls -atlr
+ 1005  oc apply -f pv.yaml 
+ 1006  oc get pv
+ 1007  ./helm install --name mymq ibm-charts/ibm-mqadvanced-server-dev --set license=accept
+ 1008  ls a-tlr
+ 1009  ls -atlr
+ 1010  cd ibmmqconfig/
+ 1011  ls -atlr
+ 1012  cd linux-amd64/
+ 1013  ls -atlr
+ 1014  ./helm install --name mymq ibm-charts/ibm-mqadvanced-server-dev --set license=accept
+ 1015  ./helm del --purge mymq
+ 1016  ./helm install --name mymq ibm-charts/ibm-mqadvanced-server-dev --set license=accept
+ 1017  kubectl port-forward mymq-ibm-mq-0 9443 1414
+ 1018  docker images
+ 1019  ./helm version
+ 1020  clear
+ 1021  ls -atlr
+ 1022  history
+ 1023  history > localvmvipinnotes.txt
